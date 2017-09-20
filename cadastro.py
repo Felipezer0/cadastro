@@ -1,0 +1,52 @@
+inicio = int(input("DIGITE '1' PARA CADASTRA E '2' PARA CUNSULTA OU OUTRO NÚMERO PARA SAI: "))
+print("")
+while inicio == 1 or inicio == 2:
+        if inicio == 1:
+                cadastro = open('cadastro.txt','a')
+                print("CADASTRO")
+                nome = input("DIGITE-O-NOME: ")
+                sobre = input("DIGITE-O-SOBRE-NOME: ")
+                print("")
+                print("ENDEREÇO: ")
+                print("")
+                rua = input("NOME-DA-RUA-OU-AV. ")
+                cep = int(input("CEP: "))
+                bairro = input("BAIRRO: ")
+                estado = input("ESTADO: ")
+                print("")
+                tel = int(input("DIGITE O TELEFONE: "))
+                cepnovo = str(cep)
+                telnovo = str(tel)
+                cadastro.write("NOME: " + nome)
+                cadastro.write("\n")
+                cadastro.write("SOBRE: " + sobre)
+                cadastro.write("\n")
+                cadastro.write("RUA OU AV.: " + rua)
+                cadastro.write("\n")
+                cadastro.write("CEP: " + cepnovo)
+                cadastro.write("\n")
+                cadastro.write("BAIRRO: " + bairro)
+                cadastro.write("\n")
+                cadastro.write("ESTADO: " + estado)
+                cadastro.write("\n")
+                cadastro.write("TELEFONE: " + telnovo)
+                cadastro.write("\n")
+                cadastro.write("\n")
+                cadastro.close()
+                print("")
+                inicio = int(input("DIGITE '1' PARA CADASTRA E '2' PARA CUNSULTA OU OUTRO NÚMERO PARA SAI: "))
+                print("")
+        if inicio == 2:
+                import re
+                f = open('cadastro.txt','r+')
+                text = f.read()
+                nome = str(input("DIGITE-O-NOME-PARA-CONSULTA"))
+                ht = 'NOME: ' + nome
+                words = [ht]
+                for x in words:
+                        for m in re.finditer(x,text):
+                                print(m.group(0))
+                print("")
+                inicio = int(input("DIGITE '1' PARA CADASTRA E '2' PARA CUNSULTA OU OUTRO NÚMERO PARA SAI: "))
+                print("")
+                
